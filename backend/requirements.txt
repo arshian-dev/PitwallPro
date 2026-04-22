@@ -1,0 +1,12 @@
+requests
+fastapi
+uvicorn
+sqlalchemy
+mysql-connector-python
+pandas
+pydantic-settings
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+fastf1
+requests-cache

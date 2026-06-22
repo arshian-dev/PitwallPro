@@ -1,4 +1,4 @@
-const API = 'http://localhost:8000';
+const API = import.meta.env.DEV ? 'http://localhost:8000' : '/_/backend';
 
 export async function fetchJSON(path) {
     const res = await fetch(`${API}${path}`);

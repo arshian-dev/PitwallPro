@@ -6,9 +6,12 @@ import os
 # Using the Aiven database by default
 DATABASE_URL = os.getenv("DATABASE_URL", "mysql+mysqlconnector://avnadmin:<YOUR_PASSWORD>@pitwall-mysql-pitwall-pro.d.aivencloud.com:14925/defaultdb")
 
-# Automatically fix 'mysql://' to 'mysql+mysqlconnector://' because Vercel/Aiven often provide raw 'mysql://' strings
-if DATABASE_URL and DATABASE_URL.startswith("mysql://"):
-    DATABASE_URL = DATABASE_URL.replace("mysql://", "mysql+mysqlconnector://", 1)
+# Automatically fix 'mysql://' and 'ssl-mode' because Vercel/Aiven often provide raw strings
+if DATABASE_URL:
+    if DATABASE_URL.startswith("mysql://"):
+        DATABASE_URL = DATABASE_URL.replace("mysql://", "mysql+mysqlconnector://", 1)
+    # mysql-connector-python doesn't support 'ssl-mode' kwarg and will throw an error
+    DATABASE_URL = DATABASE_URL.replace("?ssl-mode=REQUIRED", "").replace("&ssl-mode=REQUIRED", "")
 
 
 engine = create_engine(DATABASE_URL)

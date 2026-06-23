@@ -1,8 +1,18 @@
 import os
 import sys
 
-# Set Aiven Database URL
-os.environ["DATABASE_URL"] = "mysql+mysqlconnector://avnadmin:<YOUR_PASSWORD>@pitwall-mysql-pitwall-pro.d.aivencloud.com:14925/defaultdb"
+# Load environment variables (e.g. from .env file at the root)
+try:
+    from dotenv import load_dotenv
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    load_dotenv(os.path.join(root_dir, '.env'))
+except ImportError:
+    pass
+
+if not os.environ.get("DATABASE_URL"):
+    print("Error: DATABASE_URL environment variable is not set.")
+    print("Please set it or ensure your .env file is present.")
+    sys.exit(1)
 
 # Import after setting the environment variable
 from app.database import engine, Base

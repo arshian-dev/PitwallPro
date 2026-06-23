@@ -3,8 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 
-# Using the port 3307 as specified by the user or an environment variable for production
-DATABASE_URL = os.getenv("DATABASE_URL", "mysql+mysqlconnector://root@localhost:3307/pitwall_pro")
+# Using the Aiven database by default
+DATABASE_URL = os.getenv("DATABASE_URL", "mysql+mysqlconnector://avnadmin:<YOUR_PASSWORD>@pitwall-mysql-pitwall-pro.d.aivencloud.com:14925/defaultdb")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

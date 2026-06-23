@@ -46,16 +46,7 @@ const Layout = ({ children }) => {
                         <span className="font-['Space_Grotesk'] text-[11px] font-bold uppercase tracking-wider">Database</span>
                     </Link>
                 </nav>
-                <div className="px-4 py-4 mt-auto border-t border-white/5 space-y-1">
-                    <div className="text-slate-500 hover:bg-white/5 flex items-center px-4 py-3 gap-3 transition-colors cursor-pointer">
-                        <span className="material-symbols-outlined">help</span>
-                        <span className="font-['Space_Grotesk'] text-[11px] font-bold uppercase tracking-wider">Support</span>
-                    </div>
-                    <div className="text-slate-500 hover:bg-white/5 flex items-center px-4 py-3 gap-3 transition-colors cursor-pointer">
-                        <span className="material-symbols-outlined text-green-500">sensors</span>
-                        <span className="font-['Space_Grotesk'] text-[11px] font-bold uppercase tracking-wider">System Status</span>
-                    </div>
-                </div>
+
             </aside>
             
             <div className="flex-1 flex flex-col min-w-0 bg-background relative h-screen">
@@ -63,19 +54,10 @@ const Layout = ({ children }) => {
                 <header className="flex justify-between items-center w-full px-6 h-16 z-50 bg-[#0D0D0D]/90 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
                     <div className="flex items-center gap-8">
                         <span className="text-xl font-black italic text-[#E10600] tracking-tighter">PITWALL PRO</span>
-                        <div className="hidden md:flex gap-6 items-center">
-                            <span className="text-[#E10600] font-bold font-['Space_Grotesk'] uppercase tracking-widest text-xs cursor-pointer">Live Feed</span>
-                            <span className="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-widest text-xs hover:text-cyan-400 transition-all duration-200 cursor-pointer">Playback</span>
-                            <span className="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-widest text-xs hover:text-cyan-400 transition-all duration-200 cursor-pointer">Archives</span>
-                        </div>
+
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="hidden md:flex bg-white/5 p-1 rounded-lg mr-4">
-                            <button className="px-3 py-1 bg-[#E10600] text-white text-[10px] font-bold uppercase tracking-widest rounded-sm">Track</button>
-                            <button className="px-3 py-1 text-slate-500 text-[10px] font-bold uppercase tracking-widest rounded-sm">Garage</button>
-                        </div>
-                        <span className="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white">notifications</span>
-                        <span className="material-symbols-outlined text-slate-400 cursor-pointer hover:text-white">settings</span>
+
                         <div className="flex items-center gap-2 pl-4 border-l border-white/10">
                             <span className="material-symbols-outlined text-[#E10600]">account_circle</span>
                             <span className="font-['Space_Grotesk'] text-[10px] font-bold text-white tracking-wider">CHIEF ENG.</span>

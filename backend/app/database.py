@@ -6,6 +6,11 @@ import os
 # Using the Aiven database by default
 DATABASE_URL = os.getenv("DATABASE_URL", "mysql+mysqlconnector://avnadmin:<YOUR_PASSWORD>@pitwall-mysql-pitwall-pro.d.aivencloud.com:14925/defaultdb")
 
+# Automatically fix 'mysql://' to 'mysql+mysqlconnector://' because Vercel/Aiven often provide raw 'mysql://' strings
+if DATABASE_URL and DATABASE_URL.startswith("mysql://"):
+    DATABASE_URL = DATABASE_URL.replace("mysql://", "mysql+mysqlconnector://", 1)
+
+
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
